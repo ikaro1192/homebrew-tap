@@ -5,14 +5,14 @@
 ## Install
 
 ```sh
-brew tap ikaro1192/paninfraspec https://github.com/ikaro1192/my-homebrew-tap
+brew tap ikaro1192/tap
 brew install paninfraspec
 ```
 
 または one-liner:
 
 ```sh
-brew install ikaro1192/paninfraspec/paninfraspec
+brew install ikaro1192/tap/paninfraspec
 ```
 
 ## Update
@@ -26,7 +26,7 @@ brew upgrade paninfraspec
 
 ```sh
 brew uninstall paninfraspec
-brew untap ikaro1192/paninfraspec
+brew untap ikaro1192/tap
 ```
 
 ## Supported platforms
