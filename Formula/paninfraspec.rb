@@ -1,13 +1,13 @@
 class Paninfraspec < Formula
   desc "Dhall front-end for Serverspec that generates spec files"
   homepage "https://github.com/ikaro1192/PanInfraSpec"
-  version "0.1.0.1"
+  version "0.3.0.0"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/ikaro1192/PanInfraSpec/releases/download/v#{version}/paninfraspec-#{version}-darwin-arm64.tar.gz"
-      sha256 "07c512841e1ee093dc031d646f2500519fb29a6c18abc65610b53b90b55fd848"
+      sha256 "b0cf98e5e0c1a599459e82e2331d84230066939b808bdbffe0fa1cb4fdcec520"
     end
   end
 
