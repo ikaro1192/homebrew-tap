@@ -10,6 +10,12 @@ class Paninfraspec < Formula
   depends_on "ghc" => :build
 
   def install
+    # cabal.project.freeze pins base to a version tied to a specific GHC
+    # release. Homebrew's `ghc` formula tracks the latest GHC, so the freeze
+    # would force unsatisfiable constraints. Drop it and let cabal solve
+    # against whatever GHC Homebrew currently provides.
+    rm_f "cabal.project.freeze"
+
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
     prefix.install "LICENSE", "README.md"
