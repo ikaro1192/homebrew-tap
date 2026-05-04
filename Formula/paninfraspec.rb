@@ -2,7 +2,7 @@ class Paninfraspec < Formula
   desc "PanInfraSpec is a pluggable, multi-target infrastructure spec generator."
   homepage "https://github.com/ikaro1192/PanInfraSpec"
   url "https://github.com/ikaro1192/PanInfraSpec/archive/refs/tags/v0.5.0.0.tar.gz"
-  sha256 "684a7574e5574134cce423ec220c040e6048d6dbc69a0aa4929424fb4c690c81"
+  sha256 "f3b0dc88949126e8c210a84b36f079c42e5d0c2cf38f6c381abc8648f98c440f"
   license "MIT"
   head "https://github.com/ikaro1192/PanInfraSpec.git", branch: "main"
 
