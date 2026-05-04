@@ -7,17 +7,16 @@ class Paninfraspec < Formula
   head "https://github.com/ikaro1192/PanInfraSpec.git", branch: "main"
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.6" => :build
 
   def install
-    # cabal.project.freeze pins base to a version tied to a specific GHC
-    # release. Homebrew's `ghc` formula tracks the latest GHC, so the freeze
-    # would force unsatisfiable constraints. Drop it and let cabal solve
-    # against whatever GHC Homebrew currently provides.
-    rm_f "cabal.project.freeze"
+    # Pin to GHC 9.6 to match cabal.project.freeze (base ==4.18.3.0).
+    # ghc@9.6 is keg-only, so put it ahead of any system ghc on PATH.
+    ENV.prepend_path "PATH", Formula["ghc@9.6"].opt_bin
 
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-install", "--with-compiler=#{Formula["ghc@9.6"].opt_bin}/ghc",
+                                  *std_cabal_v2_args
     prefix.install "LICENSE", "README.md"
   end
 
