@@ -1,18 +1,17 @@
 class Paninfraspec < Formula
   desc "Dhall front-end for Serverspec that generates spec files"
   homepage "https://github.com/ikaro1192/PanInfraSpec"
-  version "0.3.0.0"
+  url "https://github.com/ikaro1192/PanInfraSpec/archive/refs/tags/v0.4.0.8.tar.gz"
+  sha256 "684a7574e5574134cce423ec220c040e6048d6dbc69a0aa4929424fb4c690c81"
   license "MIT"
+  head "https://github.com/ikaro1192/PanInfraSpec.git", branch: "main"
 
-  on_macos do
-    on_arm do
-      url "https://github.com/ikaro1192/PanInfraSpec/releases/download/v#{version}/paninfraspec-#{version}-darwin-arm64.tar.gz"
-      sha256 "b0cf98e5e0c1a599459e82e2331d84230066939b808bdbffe0fa1cb4fdcec520"
-    end
-  end
+  depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
 
   def install
-    bin.install "bin/paninfraspec-gen"
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
     prefix.install "LICENSE", "README.md"
   end
 

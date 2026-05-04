@@ -29,19 +29,23 @@ brew uninstall paninfraspec
 brew untap ikaro1192/tap
 ```
 
+## Build
+
+This formula builds from source via `ghc` + `cabal-install`. The first install
+will download a Haskell toolchain and compile the project, so it takes longer
+than a typical bottle install. Subsequent upgrades reuse Homebrew's cached
+GHC/Cabal.
+
 ## Supported platforms
 
 | OS | Arch | Source |
 | --- | --- | --- |
-| macOS | arm64 (Apple Silicon) | upstream prebuilt tarball |
-
-Once upstream publishes tarballs for macOS Intel or Linux, add the corresponding
-`on_intel` / `on_linux` blocks to `Formula/paninfraspec.rb`.
+| macOS / Linux | any arch supported by GHC | upstream source tarball (built locally) |
 
 ## Releasing a new version
 
 When a new release is cut upstream, update the following:
 
-1. Bump `version` to match the new tag.
-2. Replace each asset's `sha256`, fetched via `gh release view vX.Y.Z --repo ikaro1192/PanInfraSpec --json assets`.
+1. Bump the tag in `url` to match the new release (e.g. `v0.4.0.9`).
+2. Replace `sha256` with `curl -sL <url> | shasum -a 256`.
 3. Verify with `brew install --build-from-source ./Formula/paninfraspec.rb` and `brew test paninfraspec`.
