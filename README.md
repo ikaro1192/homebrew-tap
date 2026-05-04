@@ -1,6 +1,6 @@
 # my-homebrew-tap
 
-[ikaro1192/PanInfraSpec](https://github.com/ikaro1192/PanInfraSpec) の Homebrew tap。
+Homebrew tap for [ikaro1192/PanInfraSpec](https://github.com/ikaro1192/PanInfraSpec).
 
 ## Install
 
@@ -9,7 +9,7 @@ brew tap ikaro1192/tap
 brew install paninfraspec
 ```
 
-または one-liner:
+Or as a one-liner:
 
 ```sh
 brew install ikaro1192/tap/paninfraspec
@@ -35,13 +35,13 @@ brew untap ikaro1192/tap
 | --- | --- | --- |
 | macOS | arm64 (Apple Silicon) | upstream prebuilt tarball |
 
-macOS Intel / Linux 向けバイナリの tarball が upstream に追加された段階で
-`Formula/paninfraspec.rb` に対応する `on_intel` / `on_linux` ブロックを足してください。
+Once upstream publishes tarballs for macOS Intel or Linux, add the corresponding
+`on_intel` / `on_linux` blocks to `Formula/paninfraspec.rb`.
 
 ## Releasing a new version
 
-upstream で新しい release が切られたら、以下を更新します。
+When a new release is cut upstream, update the following:
 
-1. `version` を新タグに合わせる
-2. 各 asset の `sha256` を `gh release view vX.Y.Z --repo ikaro1192/PanInfraSpec --json assets` で取得して差し替える
-3. `brew install --build-from-source ./Formula/paninfraspec.rb` と `brew test paninfraspec` で確認
+1. Bump `version` to match the new tag.
+2. Replace each asset's `sha256`, fetched via `gh release view vX.Y.Z --repo ikaro1192/PanInfraSpec --json assets`.
+3. Verify with `brew install --build-from-source ./Formula/paninfraspec.rb` and `brew test paninfraspec`.
