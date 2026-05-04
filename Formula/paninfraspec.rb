@@ -1,7 +1,7 @@
 class Paninfraspec < Formula
-  desc "Dhall front-end for Serverspec that generates spec files"
+  desc "PanInfraSpec is a pluggable, multi-target infrastructure spec generator."
   homepage "https://github.com/ikaro1192/PanInfraSpec"
-  url "https://github.com/ikaro1192/PanInfraSpec/archive/refs/tags/v0.4.0.8.tar.gz"
+  url "https://github.com/ikaro1192/PanInfraSpec/archive/refs/tags/v0.5.0.0.tar.gz"
   sha256 "684a7574e5574134cce423ec220c040e6048d6dbc69a0aa4929424fb4c690c81"
   license "MIT"
   head "https://github.com/ikaro1192/PanInfraSpec.git", branch: "main"
